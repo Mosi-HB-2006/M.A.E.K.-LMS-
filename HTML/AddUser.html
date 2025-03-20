@@ -1,0 +1,85 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../CSS/CSS_Universal.css" />
+    <title>Add User</title>
+  </head>
+  <body>
+    <div class="contenedor">
+		
+        <!--Header-->
+    
+        <header>
+        
+            <!--Dropdown-->
+        
+            <div class="fl">
+                <div class="flDrop">
+                    ☰
+                    <div class="flDropCont"><a href="CPU.html">CPU</a></div>
+                    <div class="flDropCont"><a href="Motherboard.html">Motherboard</a></div>
+                    <div class="flDropCont"><a href="GraphicsCard.html">Graphics Card</a></div>
+                    <div class="flDropCont"><a href="Principal.html">Back</a></div>
+                </div>
+                <div><a href="https://www.whitepages.com" target="_blank">Contacts</a></div>
+            </div>
+            
+            <!--Title Banner-->
+            
+            <div id="titleAddUser">
+                <h1>Add A User!</h1>
+            </div>
+        </header>
+        
+        <!--First Article-->
+        
+        <article class="article1Principal" id="ArticalCPU">
+            <p>This is a <b>CPU</b>, also known as a <b>Central Processing Unit</b>, and its main function in a computer is to handle most of the processing tasks. It's often referred to as the <i>"brain"</i> of the computer as it performs everything to do with logical operations and instructions to run software by interpreting commands from programs.<br><br>
+                A CPU is made up of several key components: an <b>arithmetic logic unit (ALU)</b> that performs all the logical operations and calculations, a <b>control unit (CU)</b> that manages how data flows through the CPU and instructs other components on the computer what to do, and <b>registers</b>, which are small, fast storage locations in the CPU that hold data and instructions that the CPU is using or working on actively.<br><br>
+                The CPU operates in cycles known as the <i><b>fetch-decode-execute</b></i> cycle. This cycle consists of three steps: first, the CPU fetches an instruction from the computer's memory; next, it decodes the instruction to determine what action is required; and finally, it executes the action.<br><br>
+                CPU performance is often measured in <b>gigahertz (GHz)</b>, which indicates the number of cycles it can complete per second. Many modern CPUs have multiple <i>cores</i>, essentially acting like separate processing units within a single CPU. Having more cores enables the CPU to handle multiple tasks simultaneously, improving multitasking and overall performance.
+            </p>
+        </article>
+        
+        <!--First Side Image-->
+        
+        <aside class="aside1Principal"><img src="../images/cpuIMG.png" alt="Intel CPU" usemap="#map1"/></aside>
+        <map name="map1">
+            <area shape=rectangle coords="0,0,500,500" href="CPU.html" alt="go to CPU website"/>
+        </map>
+        
+        <!--Footer-->
+        
+        <footer>
+            <div class="footerFl">
+                <div class="information">
+                    <h1>Information</h1>
+                    <ul>
+                        <a href="#ArticalCPU">
+                            <li>CPU</li>
+                        </a>
+                        <a href="#ArticalMotherboard">
+                            <li>Motherboard</li>
+                        </a>
+                        <a href="#ArticalGPU">
+                            <li>Graphics Card</li>
+                        </a>
+                    </ul>
+                </div>
+                <div class="newsletter">
+                    <p>
+                        Sign up for our newsletter!
+                    </p>
+                    <form>
+                        <input type="email" id="email" value="email@email.com">
+                    </form>
+                </div>
+                <div class="faqs">
+                    <a href="https://www.google.com" target="_blank">FAQs</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+  </body>
+</html>
