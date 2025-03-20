@@ -80,6 +80,16 @@ footer{
 	justify-content:center;
 	text-align:center;
 }
+#titleAddUser{
+	display:flex;
+	background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../images/clientBG.jpg");
+	background-size:100vw 40vh;
+	background-repeat:no-repeat;
+	height:40vh;
+	align-items:center;
+	justify-content:center;
+	text-align:center;
+}
 
 /*Aside Configurations for each web page*/
 
