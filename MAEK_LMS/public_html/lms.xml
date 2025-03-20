@@ -1,0 +1,21 @@
+<maek>
+  <clients>
+    <client dni="12345678A" image="http://">
+      <name>Carmen</name>
+      <woman />
+      <phone>123456789</phone>
+    </client>
+    <client dni="12345678B" image="http://">
+      <name>Pedro</name>
+      <vip />
+      <man />
+      <phone>123456789</phone>
+    </client>
+  </clients>
+  <products>
+    <product id="123A">
+      <name>CPU</name>
+      <price>84.99</price>
+    </product>
+  </products>
+</maek>
