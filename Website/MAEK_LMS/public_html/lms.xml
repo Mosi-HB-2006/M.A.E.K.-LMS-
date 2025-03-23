@@ -1,11 +1,11 @@
-<maek>
+<maek xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MAEK_LMS.xsd">
   <clients>
     <client dni="12345678A" image="http://">
       <name>Carmen</name>
       <woman />
       <phone>123456789</phone>
     </client>
-    <client dni="12345678B" image="http://">
+    <client dni="12345678C" image="http://">
       <name>Pedro</name>
       <vip />
       <man />
