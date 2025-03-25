@@ -8,7 +8,7 @@
           <head>
             <meta charset="UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <link rel="stylesheet" type="text/css" href="../CSS/CSS_Universal.css" />
+            <link rel="stylesheet" type="text/css" href="../../CSS/CSS_Universal.css" />
             <title>Add User</title>
           </head>
           <body>
@@ -23,12 +23,22 @@
                     <div class="fl">
                         <div class="flDrop">
                             ☰
-                            <div class="flDropCont"><a href="CPU.html">CPU</a></div>
-                            <div class="flDropCont"><a href="Motherboard.html">Motherboard</a></div>
-                            <div class="flDropCont"><a href="GraphicsCard.html">Graphics Card</a></div>
-                            <div class="flDropCont"><a href="Principal.html">Back</a></div>
+                            <div class="flDropCont">
+                                <a href="CPU.html">CPU</a>
+                            </div>
+                            <div class="flDropCont">
+                                <a href="Motherboard.html">Motherboard</a>
+                            </div>
+                            <div class="flDropCont">
+                                <a href="GraphicsCard.html">Graphics Card</a>
+                            </div>
+                            <div class="flDropCont">
+                                <a href="Principal.html">Back</a>
+                            </div>
                         </div>
-                        <div><a href="https://www.whitepages.com" target="_blank">Contacts</a></div>
+                        <div>
+                            <a href="https://www.whitepages.com" target="_blank">Contacts</a>
+                        </div>
                     </div>
 
                     <!--Title Banner-->
@@ -112,6 +122,12 @@
                         </xsl:for-each>
                     </table>
                 </article>
+                
+                <!--First Side Image-->
+			
+                <aside class="aside1Button"> 
+                    <button type="button">Click Me!</button>
+                </aside>
 
                 <!--Footer-->
 
