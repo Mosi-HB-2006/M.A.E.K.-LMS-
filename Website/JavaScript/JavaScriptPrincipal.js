@@ -4,7 +4,7 @@ window.onload = function() {
     const buttonAddProduct = document.getElementById("buttonAddProduct");
 
     buttonAddData.onclick = function() {
-        window.open("../PopUp.html", "_blank", "width=631,height=349");
+        window.open("../PopUp.html", "_blank", "width=631,height=300");
     };
     buttonAddClient.onclick = function() {
         window.open("https://stackoverflow.com/questions/24282604/window-open-with-target-blank-opens-a-new-browser-window", "_blank");

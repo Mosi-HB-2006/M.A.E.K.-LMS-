@@ -1,19 +1,46 @@
 <html lang="en" class="popUpWindow">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" type="text/css" href="../CSS/CSS_Universal.css">
-        <script type="text/javascript" src="../../JavaScript/JavaScriptPrincipal.js"></script>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/CSS_Universal.css">
+    <script type="text/javascript" src="../../JavaScript/JavaScriptPrincipal.js"></script>
+</head>
 
-    <body>
-        <div class="parent">
-            <div class="divTitle"><h1 class="title">Choose The Data You Wish To Add: </h1></div>
-            <div class="divButton1"><button type="button" id="buttonAddClient">Client</button></div>
-            <div class="divButton2"><button type="button" id="buttonAddProduct">Product</button></div>
+<body>
+    <div class="parent">
+        <div class="div1">
+            <label for="fdni">DNI </label>
+            <input type="text" id="fdni" name="fdni">
         </div>
-    </body>
+        <div class="div2">
+            <label for="lname">Name </label>
+            <input type="text" id="lname" name="lname">
+        </div>
+        <div class="div3">
+            <input type="radio" id="male" name="gender" value="Male">
+            <label for="male">Male</label><br>
+
+            <input type="radio" id="female" name="gender" value="Female">
+            <label for="female">Female</label><br>
+        </div>
+        <div class="div4">
+            <label for="lphone">Phone Number</label>
+            <input type="text" id="lphone" name="lphone">
+        </div>
+        <div class="div5">
+            <label for="limag">Image Link</label>
+            <input type="text" id="limg" name="limg">
+        </div>
+        <div class="div6">
+            <input type="checkbox" id="vip" name="vip" value="VIP">
+            <label for="vip">VIP</label>
+        </div>
+        <div class="div7">
+            <input type="submit" value="Submit">
+        </div>
+    </div>
+</body>
 
 </html>
