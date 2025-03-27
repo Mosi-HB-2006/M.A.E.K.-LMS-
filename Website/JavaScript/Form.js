@@ -2,16 +2,21 @@ window.onload = function () {
   const buttonAddClient = document.getElementById("buttonAddClient");
 
   buttonAddClient.onclick = function () {
-    dni = document.getElementById("fdni").value;
-    name = document.getElementById("lname").value;
-    gender = document.querySelector("input[name='gender']:checked").value;
-    phone = document.getElementById("lphone").value;
-    image = document.getElementById("limg").value;
-    vip = document.querySelector("input[name='vip']:checked");
+    client_dni = document.getElementById("fdni").value;
+    client_name = document.getElementById("lname").value;
+    client_gender = document.querySelector(
+      "input[name='gender']:checked"
+    ).value;
+    client_phone = document.getElementById("lphone").value;
+    client_image = document.getElementById("limg").value;
+    client_vip = document.querySelector("input[name='vip']:checked");
 
     if (vip !== null) {
       vip = vip.value;
     }
-    console.log(dni, name, gender, phone, image, vip);
+
+    fetch(
+      `../PHP/index.php?dni=${client_dni}&name${client_name}&gender${client_gender}&phone${client_phone}&image${client_image}&vip${client_vip}`
+    );
   };
 };
