@@ -9,6 +9,7 @@
             <meta charset="UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <link rel="stylesheet" type="text/css" href="../../CSS/CSS_Universal.css" />
+            <script type="text/javascript" src="../../JavaScript/JavaScriptPrincipal.js"></script>
             <title>Add User</title>
           </head>
           <body>
@@ -50,7 +51,7 @@
 
                 <!--First Article-->
 
-                <article class="article1Principal" id="artical1MTB">
+                <article class="article1AddUser" id="articalAddUser">
                     <h2>Clients</h2>
                     <table border="1px">
                         <tr>
@@ -125,8 +126,8 @@
                 
                 <!--First Side Image-->
 			
-                <aside class="aside1Button"> 
-                    <button type="button">Click Me!</button>
+                <aside class="aside1AddUser"> 
+                    <button type="button" id="buttonAddUser" style="font-size:3vw"><b>Add User</b></button>
                 </aside>
 
                 <!--Footer-->
