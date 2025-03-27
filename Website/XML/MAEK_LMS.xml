@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="MAEK_LMS.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../XSLT/MAEK_LMS.xsl"?>
 <maek xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:noNamespaceSchemaLocation="../XSD/MAEK_LMS.xsd">
   <clients>
     <client dni="12345678A" image="http://">
       <name>Carmen</name>
-      <woman />
+      <female />
       <phone>123456789</phone>
     </client>
     <client dni="12345678C" image="http://">
       <name>Pedro</name>
       <vip />
-      <man />
+      <male />
       <phone>123456789</phone>
     </client>
   </clients>

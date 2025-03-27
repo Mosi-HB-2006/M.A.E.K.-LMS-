@@ -17,8 +17,8 @@
                     <xs:element name="name" type="xs:string" />
                     <xs:element name="vip" minOccurs="0" type="xs:string" />
                     <xs:choice>
-                      <xs:element name="woman" type="xs:string" />
-                      <xs:element name="man" type="xs:string" />
+                      <xs:element name="female" type="xs:string" />
+                      <xs:element name="male" type="xs:string" />
                     </xs:choice>
 
                     <xs:element name="phone">
