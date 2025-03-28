@@ -5,13 +5,16 @@
   flex-direction: column;
   flex-wrap: wrap;
 }
+
 html {
   background-color: #7e7e7e;
 }
+
 header h1 {
   color: #828282;
   font-size: 5vw;
 }
+
 article {
   background-color: #9c9c9c;
   font-size: 1.2vw;
@@ -20,9 +23,11 @@ article {
   border-radius: 2vh;
   align-content: center;
 }
+
 footer {
   background-color: #3a3a3a;
 }
+
 table,
 th,
 td {
@@ -31,6 +36,7 @@ td {
   font-style: italic;
   border-width: 0.5vh;
 }
+
 footer {
   max-height: 30vh;
 }
@@ -48,6 +54,7 @@ footer {
   justify-content: center;
   text-align: center;
 }
+
 #titleGPU {
   display: flex;
   background-image: url("../Images/NVIDIAFondo.jpg");
@@ -60,6 +67,7 @@ footer {
   font-size: 1.5vw;
   color: #828282;
 }
+
 #titleCPU {
   display: flex;
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
@@ -71,6 +79,7 @@ footer {
   justify-content: center;
   text-align: center;
 }
+
 #titleMTB {
   display: flex;
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
@@ -82,6 +91,7 @@ footer {
   justify-content: center;
   text-align: center;
 }
+
 #titleAddUser {
   display: flex;
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
@@ -153,28 +163,34 @@ footer {
   align-items: stretch;
   text-align: center;
 }
+
 .fl a {
   text-decoration: none;
   color: #0f0f0f;
 }
+
 .fl div {
   background-color: #9c9c9c;
   font-size: 1.5vw;
   color: #0f0f0f;
   max-height: 3.7vh;
 }
+
 .fl div:hover {
   background-color: #666666;
 }
+
 .flDrop {
   display: inline-block;
   flex-direction: column;
   width: 5vw;
 }
+
 .flDropCont {
   display: none;
   width: 10vw;
 }
+
 .flDrop:hover .flDropCont {
   display: block;
 }
@@ -238,11 +254,13 @@ form {
   .contenedor {
     flex-direction: row;
   }
+
   header,
   footer,
   article {
     width: 100%;
   }
+
   aside {
     display: flex;
     justify-content: center;
@@ -256,18 +274,23 @@ form {
   .aside1Principal {
     order: 2;
   }
+
   .article1Principal {
     order: 3;
   }
+
   .article2Principal {
     order: 4;
   }
+
   .aside2Principal {
     order: 5;
   }
+
   .aside3Principal {
     order: 6;
   }
+
   .article3Principal {
     order: 7;
   }
@@ -275,18 +298,23 @@ form {
   .aside1GPU {
     order: 2;
   }
+
   .article1GPU {
     order: 3;
   }
+
   .article2GPU {
     order: 4;
   }
+
   .aside2GPU {
     order: 5;
   }
+
   .article3GPU {
     order: 6;
   }
+
   .article4GPU {
     order: 7;
   }
@@ -294,15 +322,19 @@ form {
   .aside1CPU {
     order: 2;
   }
+
   .article1CPU {
     order: 3;
   }
+
   .article2CPU {
     order: 4;
   }
+
   .aside2CPU {
     order: 5;
   }
+
   .article3CPU {
     order: 6;
   }
@@ -310,22 +342,32 @@ form {
   .aside1MTB {
     order: 2;
   }
+
   .article1MTB {
     order: 3;
   }
+
   .article2MTB {
     order: 4;
   }
+
   .aside2MTB {
     order: 5;
   }
+
   .article3MTB {
     order: 6;
   }
 
   .aside1AddUser {
     order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 50px;
+    padding: 10px;
   }
+
   .article1AddUser {
     order: 3;
   }
@@ -333,6 +375,7 @@ form {
   footer {
     order: 8;
   }
+
   article {
     flex: 3 1 60vw;
     margin: 1.4vh;
@@ -377,21 +420,52 @@ form {
 .div1 {
   grid-area: 1 / 1 / 3 / 3;
 }
+
 .div2 {
   grid-area: 1 / 3 / 3 / 5;
 }
+
 .div3 {
   grid-area: 3 / 1 / 5 / 5;
 }
+
 .div4 {
   grid-area: 5 / 1 / 7 / 3;
 }
+
 .div5 {
   grid-area: 5 / 3 / 7 / 5;
 }
+
 .div6 {
   grid-area: 7 / 1 / 9 / 3;
 }
+
 .div7 {
   grid-area: 9 / 1 / 11 / 5;
+}
+
+.selectUserWindow {
+  background-color: #7e7e7e;
+}
+
+.contenedorDelete {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.contenedorDelete label {
+  font-size: 18px;
+  margin: 10px;
+}
+
+.selectUser {
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 300px;
 }
