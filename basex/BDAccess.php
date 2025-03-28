@@ -26,6 +26,11 @@ try {
     // Cerrar la consulta
     $query->close();
 
+    // Exportar a un archivo XML
+    $exportQuery = $session->query("db:export('Maek', 'C:/xampp/htdocs/M.A.E.K.-LMS-/Website/XML/MAEK_LMS.xml', map {'method': 'xml', 'indent': 'yes'})");
+    $exportResult = $exportQuery->execute();
+    $exportQuery->close();
+
     // Cerrar la sesión
     $session->close();
 
@@ -33,7 +38,7 @@ try {
     ob_clean();
     header("Content-Type: text/xml; charset=UTF-8");
 
-    // Imprimir el resultado
+    // Imprimir el resultado de la primera consulta
     echo trim($result);
 } catch (Exception $e) {
     ob_clean();

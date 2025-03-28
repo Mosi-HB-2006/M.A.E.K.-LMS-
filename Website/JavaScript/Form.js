@@ -27,21 +27,11 @@ window.onload = function () {
       `http://localhost/M.A.E.K.-LMS-/basex/BDAccess.php?dni=${client_dni}&name=${client_name}&gender=${client_gender}&phone=${client_phone}&image=${client_image}&vip=${client_vip}`
     )
       .then((response) => {
-        console.log("Respuesta del servidor:", response); // Aquí se muestra la respuesta completa
-        return response.text(); // Obtener la respuesta como texto
-      })
-      .then((data) => {
-        console.log("Datos recibidos:", data); // Muestra lo que el servidor devuelve
-        try {
-          const jsonData = JSON.parse(data); // Intenta convertir la respuesta en JSON
-          console.log(jsonData);
-        } catch (e) {
-          console.error("Error al parsear la respuesta como JSON:", e);
-        }
+        console.log("Request sent successfully");
+        // No need to return response.text() since we're not expecting any data
       })
       .catch((error) => {
-        console.log("Error al realizar la solicitud:", error);
-        alert("Error al realizar la solicitud");
+        console.log("Error sending the request:", error);
       });
   };
 };

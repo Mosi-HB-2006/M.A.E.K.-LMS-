@@ -1,5 +1,4 @@
 import module namespace db = "http://basex.org/modules/db";
-
 declare variable $dni external := "0";
 declare variable $name external := "0";
 declare variable $gender external := "0";

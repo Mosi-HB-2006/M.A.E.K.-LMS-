@@ -1,18 +1,59 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../XSLT/MAEK_LMS.xsl"?>
-<maek xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:noNamespaceSchemaLocation="../XSD/MAEK_LMS.xsd">
+<maek xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../XSD/MAEK_LMS.xsd">
   <clients>
     <client dni="12345678A" image="http://">
       <name>Carmen</name>
-      <female />
+      <female/>
       <phone>123456789</phone>
     </client>
     <client dni="12345678C" image="http://">
       <name>Pedro</name>
-      <vip />
-      <male />
+      <vip/>
+      <male/>
       <phone>123456789</phone>
+    </client>
+  <client dni="11111111A" image="http://">
+      <name>Test</name>
+      <vip/>
+      <male/>
+      <phone>222222222</phone>
+    </client>
+    <client dni="11111111B" image="http://">
+      <name>Test</name>
+      <vip/>
+      <male/>
+      <phone>222222222</phone>
+    </client>
+    <client dni="11111111C" image="http://">
+      <name>Test</name>
+      <male/>
+      <phone>222222222</phone>
+    </client>
+    <client dni="11111111C" image="http://">
+      <name>Test</name>
+      <male/>
+      <phone>222222222</phone>
+    </client>
+    <client dni="11111111C" image="http://">
+      <name>Test</name>
+      <male/>
+      <phone>222222222</phone>
+    </client>
+    <client dni="11111111C" image="http://">
+      <name>Test</name>
+      <male/>
+      <phone>222222222</phone>
+    </client>
+    <client dni="11111111D" image="http://">
+      <name>Test</name>
+      <male/>
+      <phone>222222222</phone>
+    </client>
+    <client dni="11111111E" image="http://">
+      <name>Test</name>
+      <vip/>
+      <female/>
+      <phone>222222222</phone>
     </client>
   </clients>
   <products>
