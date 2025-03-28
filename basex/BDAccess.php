@@ -23,7 +23,7 @@ try {
     // Ejecutar el XQuery
     $result = $query->execute();
 
-    // Cerrar la consulta
+    // Cerrar query
     $query->close();
 
     // Exportar a un archivo XML
@@ -31,15 +31,36 @@ try {
     $exportResult = $exportQuery->execute();
     $exportQuery->close();
 
-    // Cerrar la sesión
+    // Store XQuery result in a temporary XML file
+    $xmlFile = '../Website/XML/MAEK_LMS.xml';
+
+    // Load the XQuery result XML
+    $xml = new DOMDocument();
+    $xml->load($xmlFile);
+
+    // Load XSLT stylesheet
+    $xsl = new DOMDocument();
+    $xsl->load('../Website/XSLT/MAEK_LMS.xsl');
+
+    // Create XSLT processor
+    $processor = new XSLTProcessor();
+    $processor->importStylesheet($xsl);
+
+    // Transform to HTML
+    $htmlOutput = $processor->transformToXML($xml);
+
+    // Define the output path for HTML file
+    $htmlFilePath = '../Website/HTML/AddUserXSLT.html';
+
+    // Write the HTML output to file
+    file_put_contents($htmlFilePath, $htmlOutput);
+
+    // Close session
     $session->close();
 
-    // Limpiar salida previa y enviar encabezado XML
-    ob_clean();
-    header("Content-Type: text/xml; charset=UTF-8");
-
-    // Imprimir el resultado de la primera consulta
-    echo trim($result);
+    // Output HTML (optional - remove if you don't want to display in browser)
+    header('Content-Type: text/html; charset=utf-8');
+    echo $htmlOutput;
 } catch (Exception $e) {
     ob_clean();
     header("Content-Type: text/plain");

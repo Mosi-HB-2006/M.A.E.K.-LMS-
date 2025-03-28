@@ -8,8 +8,8 @@
       <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" type="text/css" href="../../CSS/CSS_Universal.css" />
-        <script type="text/javascript" src="../../JavaScript/JavaScriptPrincipal.js"></script>
+        <link rel="stylesheet" type="text/css" href="../CSS/CSS_Universal.css" />
+        <script type="text/javascript" src="../JavaScript/JavaScriptPrincipal.js"></script>
         <title>Add User</title>
       </head>
       <body>
@@ -76,7 +76,7 @@
                   </td>
                   <td>
                     <xsl:choose>
-                      <xsl:when test="man"> Male </xsl:when>
+                      <xsl:when test="male"> Male </xsl:when>
                       <xsl:otherwise> Female </xsl:otherwise>
                     </xsl:choose>
                   </td>
@@ -84,7 +84,7 @@
                     <xsl:value-of select="phone" />
                   </td>
                   <td>
-                    <xsl:value-of select="@image" />
+                    <image width="60px" src="{@image}" alt="{@image}"></image>
                   </td>
                   <td>
                     <xsl:choose>
