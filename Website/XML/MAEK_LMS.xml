@@ -18,6 +18,51 @@
       <male/>
       <phone>111111111</phone>
     </client>
+    <client dni="22222222A" image="Test">
+      <name>Hola</name>
+      <female/>
+      <phone>666666666</phone>
+    </client>
+    <client dni="22222222B" image="test">
+      <name>Ekaitz</name>
+      <male/>
+      <phone>222222222</phone>
+    </client>
+    <client dni="11111111A" image="test">
+      <name>Test</name>
+      <male/>
+      <phone>111111111</phone>
+    </client>
+    <client dni="11111111C" image="Test">
+      <name>Test</name>
+      <male/>
+      <phone>111111111</phone>
+    </client>
+    <client dni="22222222A" image="http://">
+      <name>Test</name>
+      <male/>
+      <phone>111111111</phone>
+    </client>
+    <client dni="33333333A" image="Test">
+      <name>Test</name>
+      <male/>
+      <phone>333333333</phone>
+    </client>
+    <client dni="11111111C" image="Test">
+      <name>Test</name>
+      <male/>
+      <phone>111111111</phone>
+    </client>
+    <client dni="22222222A" image="Test">
+      <name>Test</name>
+      <female/>
+      <phone>111111111</phone>
+    </client>
+    <client dni="11111111C" image="Test">
+      <name>Test</name>
+      <male/>
+      <phone>111111111</phone>
+    </client>
   </clients>
   <products>
     <product id="123A">

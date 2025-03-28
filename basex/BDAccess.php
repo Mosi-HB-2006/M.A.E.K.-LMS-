@@ -57,10 +57,6 @@ try {
 
     // Close session
     $session->close();
-
-    // Output HTML (optional - remove if you don't want to display in browser)
-    header('Content-Type: text/html; charset=utf-8');
-    echo $htmlOutput;
 } catch (Exception $e) {
     ob_clean();
     header("Content-Type: text/plain");

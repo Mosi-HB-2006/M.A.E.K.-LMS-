@@ -9,38 +9,40 @@
 </head>
 
 <body>
-    <div class="parent">
-        <div class="div1">
-            <label for="fdni">DNI </label>
-            <input type="text" id="fdni" name="fdni">
-        </div>
-        <div class="div2">
-            <label for="lname">Name </label>
-            <input type="text" id="lname" name="lname">
-        </div>
-        <div class="div3">
-            <input type="radio" id="male" name="gender" value="male" checked>
-            <label for="male">Male</label><br>
+    <form id="addUserForm" onsubmit="return submitForm(event)">
+        <div class="parent">
+            <div class="div1">
+                <label for="fdni">DNI </label>
+                <input type="text" id="fdni" name="fdni" required>
+            </div>
+            <div class="div2">
+                <label for="lname">Name </label>
+                <input type="text" id="lname" name="lname" required>
+            </div>
+            <div class="div3">
+                <input type="radio" id="male" name="gender" value="male" checked>
+                <label for="male">Male</label><br>
 
-            <input type="radio" id="female" name="gender" value="female">
-            <label for="female">Female</label><br>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label><br>
+            </div>
+            <div class="div4">
+                <label for="lphone">Phone Number</label>
+                <input type="tel" id="lphone" name="lphone" required>
+            </div>
+            <div class="div5">
+                <label for="limg">Image Link</label>
+                <input type="text" id="limg" name="limg" required>
+            </div>
+            <div class="div6">
+                <input type="checkbox" id="vip" name="vip" value="VIP">
+                <label for="vip">VIP</label>
+            </div>
+            <div class="div7">
+                <button type="submit" id="buttonAddClient" style="font-size:3vw"><b>Submit</b></button>
+            </div>
         </div>
-        <div class="div4">
-            <label for="lphone">Phone Number</label>
-            <input type="text" id="lphone" name="lphone">
-        </div>
-        <div class="div5">
-            <label for="limag">Image Link</label>
-            <input type="text" id="limg" name="limg">
-        </div>
-        <div class="div6">
-            <input type="checkbox" id="vip" name="vip" value="VIP">
-            <label for="vip">VIP</label>
-        </div>
-        <div class="div7">
-            <button type="button" id="buttonAddClient" style="font-size:3vw"><b>Submit</b></button>
-        </div>
-    </div>
+    </form>
 </body>
 
 </html>
