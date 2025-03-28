@@ -12,23 +12,7 @@
       <male/>
       <phone>123456789</phone>
     </client>
-  <client dni="11111111A" image="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1280px-Image_created_with_a_mobile_phone.png">
-      <name>Test</name>
-      <vip/>
-      <male/>
-      <phone>111111111</phone>
-    </client>
-    <client dni="22222222A" image="Test">
-      <name>Hola</name>
-      <female/>
-      <phone>666666666</phone>
-    </client>
-    <client dni="22222222B" image="test">
-      <name>Ekaitz</name>
-      <male/>
-      <phone>222222222</phone>
-    </client>
-    <client dni="11111111A" image="test">
+  <client dni="11111111A" image="Test">
       <name>Test</name>
       <male/>
       <phone>111111111</phone>
@@ -38,27 +22,7 @@
       <male/>
       <phone>111111111</phone>
     </client>
-    <client dni="22222222A" image="http://">
-      <name>Test</name>
-      <male/>
-      <phone>111111111</phone>
-    </client>
-    <client dni="33333333A" image="Test">
-      <name>Test</name>
-      <male/>
-      <phone>333333333</phone>
-    </client>
-    <client dni="11111111C" image="Test">
-      <name>Test</name>
-      <male/>
-      <phone>111111111</phone>
-    </client>
-    <client dni="22222222A" image="Test">
-      <name>Test</name>
-      <female/>
-      <phone>111111111</phone>
-    </client>
-    <client dni="11111111C" image="Test">
+    <client dni="11111111A" image="Test">
       <name>Test</name>
       <male/>
       <phone>111111111</phone>

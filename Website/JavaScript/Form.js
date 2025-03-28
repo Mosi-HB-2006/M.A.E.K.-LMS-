@@ -39,7 +39,7 @@ function validateForm(formData) {
 
 function processFormData(formData) {
   fetch(
-    `http://localhost/M.A.E.K.-LMS-/basex/BDAccess.php?dni=${formData.dni}&name=${formData.name}&gender=${formData.gender}&phone=${formData.phone}&image=${formData.image}&vip=${formData.vip}`
+    `http://localhost/M.A.E.K.-LMS-/basex/BDInsert.php?dni=${formData.dni}&name=${formData.name}&gender=${formData.gender}&phone=${formData.phone}&image=${formData.image}&vip=${formData.vip}`
   )
     .then((response) => {
       if (!response.ok) {
