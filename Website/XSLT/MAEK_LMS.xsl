@@ -97,7 +97,21 @@
                 </tr>
               </xsl:for-each>
             </table>
+          </article>
 
+          <!--First
+                    Side Image-->
+
+          <aside class="aside1AddUser">
+            <button type="button" id="buttonAddUser" style="font-size:3vw">
+              <b>Add User</b>
+            </button>
+            <button type="button" id="buttonDeleteUser" style="font-size:3vw">
+              <b>Delete User</b>
+            </button>
+          </aside>
+
+          <article class="article2AddUser" id="ArticalProducts">
             <h2>Products</h2>
             <table border="1px">
               <tr>
@@ -121,15 +135,11 @@
             </table>
           </article>
 
-          <!--First
-                    Side Image-->
+          <!--Second Side Image-->
 
-          <aside class="aside1AddUser">
-            <button type="button" id="buttonAddUser" style="font-size:3vw">
-              <b>Add User</b>
-            </button>
-            <button type="button" id="buttonDeleteUser" style="font-size:3vw">
-              <b>Delete User</b>
+          <aside class="aside2AddUser">
+            <button type="button" id="buttonModifyProduct" style="font-size:3vw">
+              <b>Modify Product</b>
             </button>
           </aside>
 

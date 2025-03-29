@@ -153,6 +153,14 @@ footer {
   color: #0f0f0f;
 }
 
+.aside2AddUser button {
+  width: 20vw;
+  height: 20vh;
+  border-radius: 2vw;
+  background-color: #9c9c9c;
+  color: #0f0f0f;
+}
+
 /*FlexBox Universal Configurations*/
 
 .fl {
@@ -370,6 +378,14 @@ form {
 
   .article1AddUser {
     order: 3;
+  }
+
+  .article2AddUser {
+    order: 4;
+  }
+
+  .aside2AddUser {
+    order: 5;
   }
 
   footer {
