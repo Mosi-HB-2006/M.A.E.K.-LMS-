@@ -1,8 +1,15 @@
 <?php
 require_once("BDConexion.php");
 
+header("Content-Type: application/json"); // Se debe devolver JSON
+
 try {
     $rutaXq = "prueba.xq";
+
+    if (!file_exists($rutaXq)) {
+        throw new Exception("El archivo XQuery no existe: " . $rutaXq);
+    }
+
     $fichero = fopen($rutaXq, "r");
     $xq = fread($fichero, filesize($rutaXq));
     fclose($fichero);
@@ -23,42 +30,15 @@ try {
     // Ejecutar el XQuery
     $result = $query->execute();
 
-    // Cerrar query
+    // Cerrar query y sesión
     $query->close();
-
-    // Exportar a un archivo XML
-    $exportQuery = $session->query("db:export('Maek', 'C:/xampp/htdocs/M.A.E.K.-LMS-/Website/XML/MAEK_LMS.xml', map {'method': 'xml', 'indent': 'yes'})");
-    $exportResult = $exportQuery->execute();
-    $exportQuery->close();
-
-    // Store XQuery result in a temporary XML file
-    $xmlFile = '../Website/XML/MAEK_LMS.xml';
-
-    // Load the XQuery result XML
-    $xml = new DOMDocument();
-    $xml->load($xmlFile);
-
-    // Load XSLT stylesheet
-    $xsl = new DOMDocument();
-    $xsl->load('../Website/XSLT/MAEK_LMS.xsl');
-
-    // Create XSLT processor
-    $processor = new XSLTProcessor();
-    $processor->importStylesheet($xsl);
-
-    // Transform to HTML
-    $htmlOutput = $processor->transformToXML($xml);
-
-    // Define the output path for HTML file
-    $htmlFilePath = '../Website/HTML/AddUserXSLT.html';
-
-    // Write the HTML output to file
-    file_put_contents($htmlFilePath, $htmlOutput);
-
-    // Close session
     $session->close();
+
+    // Llamar a BDExport.php para exportar datos
+    include 'BDExport.php';
+
+    // Respuesta exitosa en JSON
+    echo json_encode(["success" => true, "message" => "Datos insertados correctamente"]);
 } catch (Exception $e) {
-    ob_clean();
-    header("Content-Type: text/plain");
-    echo "Error: " . $e->getMessage();
+    echo json_encode(["success" => false, "error" => $e->getMessage()]);
 }

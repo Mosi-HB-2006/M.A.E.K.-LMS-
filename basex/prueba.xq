@@ -6,14 +6,14 @@ declare variable $phone external := "0";
 declare variable $image external := "0";
 declare variable $vip external := "0";
 
-let $doc := db:get("Maek", "MAEK_LMS.xml")  (: Obtener el documento MAEK_LMS.xml desde la base de datos :)
+let $doc := db:get("Maek", "MAEK_LMS.xml")
 let $newClient :=
   <client dni="{$dni}" image="{$image}">
     <name>{$name}</name>
-    {if ($vip = "VIP") then <vip/> else ()}
+    {if ($vip = "1") then <vip/> else ()}
     {element { $gender } {()}}
     <phone>{$phone}</phone>
   </client>
 
-(: Insertar el nuevo cliente dentro del nodo <clients> del documento MAEK_LMS.xml :)
+(: Insertar el nuevo cliente dentro de clients del documento MAEK_LMS.xml :)
 return insert node $newClient into $doc//clients

@@ -128,6 +128,9 @@
             <button type="button" id="buttonAddUser" style="font-size:3vw">
               <b>Add User</b>
             </button>
+            <button type="button" id="buttonDeleteUser" style="font-size:3vw">
+              <b>Delete User</b>
+            </button>
           </aside>
 
           <!--Footer-->
