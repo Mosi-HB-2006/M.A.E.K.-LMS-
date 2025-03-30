@@ -84,7 +84,7 @@
                     <xsl:value-of select="phone" />
                   </td>
                   <td>
-                    <image width="60px" src="{@image}" alt="{@image}"></image>
+                    <img width="60px" src="{@image}" alt="{@image}"></img>
                   </td>
                   <td>
                     <xsl:choose>
@@ -135,7 +135,8 @@
             </table>
           </article>
 
-          <!--Second Side Image-->
+          <!--Second
+          Side Image-->
 
           <aside class="aside2AddUser">
             <button type="button" id="buttonModifyProduct" style="font-size:3vw">

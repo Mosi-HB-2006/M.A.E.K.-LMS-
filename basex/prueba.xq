@@ -10,7 +10,7 @@ let $doc := db:get("Maek", "MAEK_LMS.xml")
 let $newClient :=
   <client dni="{$dni}" image="{$image}">
     <name>{$name}</name>
-    {if ($vip = "1") then <vip/> else ()}
+    {if ($vip) then <vip/> else ()}
     {element { $gender } {()}}
     <phone>{$phone}</phone>
   </client>

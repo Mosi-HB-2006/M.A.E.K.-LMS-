@@ -51,7 +51,6 @@ function processFormData(formData) {
       console.log("Response from server:", data);
       // Only reload and close after successful PHP execution
       if (window.opener && !window.opener.closed) {
-        window.opener.location.reload();
         window.close();
       }
     })
