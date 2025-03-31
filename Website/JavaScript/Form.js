@@ -14,6 +14,10 @@ function submitForm(event) {
     return false;
   }
 
+  if (!confirm("Are you sure?")) {
+    return false;
+  }
+
   processFormData(formData);
   return false;
 }
@@ -51,6 +55,7 @@ function processFormData(formData) {
       console.log("Response from server:", data);
       // Only reload and close after successful PHP execution
       if (window.opener && !window.opener.closed) {
+        window.opener.location.reload();
         window.close();
       }
     })
