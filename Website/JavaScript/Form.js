@@ -1,6 +1,7 @@
 function submitForm(event) {
   event.preventDefault();
 
+  // Create the formData object with the values from the form inputs
   const formData = {
     dni: document.getElementById("fdni").value,
     name: document.getElementById("lname").value,
@@ -10,42 +11,50 @@ function submitForm(event) {
     vip: document.getElementById("vip").checked,
   };
 
+  // If the validation rules are not satisfied, exit the function
   if (!validateForm(formData)) {
     return false;
   }
 
+  // Show a confirmation dialog. If the user cancels, stop execution; otherwise, proceed with processFormData
   if (!confirm("Are you sure?")) {
     return false;
   }
 
   processFormData(formData);
-  return false;
 }
 
+// Function to validate if the form data meets all validation rules
 function validateForm(formData) {
+  // Check if required fields are not empty
   if (!formData.dni || !formData.name || !formData.phone || !formData.image) {
     alert("Please fill all required fields");
     return false;
   }
 
+  // Validate DNI format: 8 digits followed by an uppercase letter
   if (!/^\d{8}[A-Z]$/.test(formData.dni)) {
     alert("DNI must be 8 numbers followed by a capital letter");
     return false;
   }
 
+  // Validate phone number: exactly 9 digits
   if (!/^\d{9}$/.test(formData.phone)) {
     alert("Phone number must be 9 digits");
     return false;
   }
 
+  // If all checks pass, return true
   return true;
 }
 
+// Function to send a request to the PHP script with form data as query parameters
 function processFormData(formData) {
   fetch(
     `http://localhost/M.A.E.K.-LMS-/basex/BDInsert.php?dni=${formData.dni}&name=${formData.name}&gender=${formData.gender}&phone=${formData.phone}&image=${formData.image}&vip=${formData.vip}`
   )
     .then((response) => {
+      // Check if the response is successful
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -53,7 +62,8 @@ function processFormData(formData) {
     })
     .then((data) => {
       console.log("Response from server:", data);
-      // Only reload and close after successful PHP execution
+
+      // If addUserXSLT window is still open, reload it and close the PopUp window
       if (window.opener && !window.opener.closed) {
         window.opener.location.reload();
         window.close();
