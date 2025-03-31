@@ -9,9 +9,11 @@
  */
 class Session
 {
+
   // class variables.
   var $socket, $info, $buffer, $bpos, $bsize;
   function __construct()
+
   {
     // Leer fichero config BD
     $config = parse_ini_file('BDsetup.ini');
@@ -25,8 +27,10 @@ class Session
     if (!socket_connect($this->socket, $host, $port)) {
       throw new Exception("Can't communicate with server.");
     }
+
     // receive timestamp
     $ts = $this->readString();
+
     // Hash container
     if (false !== strpos($ts, ':')) {
       // digest-auth
@@ -43,6 +47,7 @@ class Session
       throw new Exception("Access denied.");
     }
   }
+
   public function execute($com)
   {
     // send command to server
@@ -55,40 +60,49 @@ class Session
     }
     return $result;
   }
+
   public function query($q)
   {
     return new Query($this, $q);
   }
+
   public function create($name, $input)
   {
     $this->sendCmd(8, $name, $input);
   }
+
   public function add($path, $input)
   {
     $this->sendCmd(9, $path, $input);
   }
+
   public function replace($path, $input)
   {
     $this->sendCmd(12, $path, $input);
   }
+
   public function store($path, $input)
   {
     $this->sendCmd(13, $path, $input);
   }
+
   public function info()
   {
     return $this->info;
   }
+
   public function close()
   {
     socket_write($this->socket, "exit" . chr(0));
     socket_close($this->socket);
   }
+
   private function init()
   {
     $this->bpos = 0;
     $this->bsize = 0;
   }
+
   public function readString()
   {
     $com = "";
@@ -97,6 +111,7 @@ class Session
     }
     return $com;
   }
+
   private function read()
   {
     if ($this->bpos == $this->bsize) {
@@ -105,6 +120,7 @@ class Session
     }
     return $this->buffer[$this->bpos++];
   }
+
   private function sendCmd($code, $arg, $input)
   {
     socket_write($this->socket, chr($code) . $arg . chr(0) . $input . chr(0));
@@ -113,20 +129,24 @@ class Session
       throw new Exception($this->info);
     }
   }
+
   public function send($str)
   {
     socket_write($this->socket, $str . chr(0));
   }
+
   public function ok()
   {
     return $this->read() == chr(0);
   }
+
   public function receive()
   {
     $this->init();
     return $this->readString();
   }
 }
+
 class Query
 {
   var $session, $id, $open, $cache, $pos;
