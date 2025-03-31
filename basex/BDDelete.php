@@ -14,8 +14,8 @@ try {
 
     // Realizar la consulta XQuery
     $query = $session->query("
-        for $cliente in doc(MAEK_LMS.xml)/maek/clients/client
-        return data($cliente/@dni)
+        for \$cliente in doc('http://localhost/M.A.E.K.-LMS-/Website/XML/MAEK_LMS.xml')/maek/clients/client
+        return data(\$cliente/@dni)
     ");
 
     // Ejecutar la consulta y obtener los resultados
