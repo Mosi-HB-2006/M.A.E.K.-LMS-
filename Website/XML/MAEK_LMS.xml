@@ -1,26 +1,23 @@
 <?xml-stylesheet type="text/xsl" href="../XSLT/MAEK_LMS.xsl"?>
-<maek xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../XSD/MAEK_LMS.xsd">
+<maek xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../XSD/MAEK_LMS.xsd">
   <clients>
     <client dni="12345678A" image="http://">
       <name>Carmen</name>
-      <female/>
+      <female />
       <phone>123456789</phone>
     </client>
     <client dni="12345678C" image="http://">
       <name>Pedro</name>
-      <vip/>
-      <male/>
+      <vip />
+      <male />
       <phone>123456789</phone>
     </client>
-  <client dni="11111111H" image="1">
-      <name>1</name>
-      <male/>
-      <phone>111111111</phone>
-    </client>
-    <client dni="22222222F" image="1">
-      <name>f</name>
-      <male/>
-      <phone>111111111</phone>
+    <client dni="12345678B" image="http://">
+      <name>Carlos</name>
+      <vip />
+      <male />
+      <phone>123456789</phone>
     </client>
   </clients>
   <products>

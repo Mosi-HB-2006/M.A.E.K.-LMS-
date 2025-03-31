@@ -67,6 +67,7 @@
               </tr>
 
               <xsl:for-each select="clients/client">
+                <xsl:sort select="@dni" order="ascending" />
                 <tr>
                   <td>
                     <xsl:value-of select="@dni" />
