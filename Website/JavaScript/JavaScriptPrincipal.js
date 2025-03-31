@@ -3,11 +3,18 @@ window.onload = function () {
   const buttonDeleteData = document.getElementById("buttonDeleteUser");
 
   buttonAddData.onclick = function () {
-    window.open("PopUp.html", "_blank", "width=631,height=300");
+    window.open("PopUpAddUser.html", "_blank", "width=631,height=300");
   };
   buttonDeleteData.onclick = function () {
     window.open("SelectUser.html", "_blank", "width=631,height=300");
   };
+
+  document.querySelectorAll(".idSquare").forEach(square => {
+    square.addEventListener("click", function () {
+      let rowIndex = this.closest("tr").rowIndex;
+      window.open(`PopUpModifyProduct.html?id=${this.textContent.trim()}`, "_blank", "width=631,height=200");
+    });
+  });
 
   if (localStorage.getItem("hasLoaded")) {
     localStorage.removeItem("hasLoaded");

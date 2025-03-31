@@ -1,29 +1,48 @@
 <?xml-stylesheet type="text/xsl" href="../XSLT/MAEK_LMS.xsl"?>
-<maek xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:noNamespaceSchemaLocation="../XSD/MAEK_LMS.xsd">
+<maek xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../XSD/MAEK_LMS.xsd">
   <clients>
     <client dni="12345678A" image="http://">
       <name>Carmen</name>
-      <female />
+      <female/>
       <phone>123456789</phone>
     </client>
     <client dni="12345678C" image="http://">
       <name>Pedro</name>
-      <vip />
-      <male />
+      <vip/>
+      <male/>
       <phone>123456789</phone>
     </client>
-    <client dni="12345678B" image="http://">
-      <name>Carlos</name>
-      <vip />
-      <male />
-      <phone>123456789</phone>
+    <client dni="11111111H" image="T">
+      <name>Mosi</name>
+      <vip/>
+      <male/>
+      <phone>801458321</phone>
+    </client>
+    <client dni="11111111H" image="1">
+      <name>Kevin</name>
+      <vip/>
+      <male/>
+      <phone>111111111</phone>
+    </client>
+    <client dni="11111111H" image="f">
+      <name>Ekaitz</name>
+      <vip/>
+      <male/>
+      <phone>123455678</phone>
     </client>
   </clients>
   <products>
     <product id="123A">
       <name>CPU</name>
-      <price>84.99</price>
+      <price>199.99</price>
+    </product>
+    <product id="345B">
+      <name>Motherboard</name>
+      <price>99.99</price>
+    </product>
+    <product id="678C">
+      <name>Grpahics card</name>
+      <price>840.99</price>
     </product>
   </products>
 </maek>

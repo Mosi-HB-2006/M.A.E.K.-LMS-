@@ -1,0 +1,33 @@
+<html lang="en" class="popUpWindow">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/CSS_Universal.css">
+    <script type="text/javascript" src="../JavaScript/JavaScriptModifyProduct.js"></script>
+</head>
+
+<body>
+    <form id="modifyProductForm" onsubmit="return submitForm(event)">
+        <div class="parent">
+            <div class="div1">
+                <label for="fid">ID</label>
+                <input type="text" id="fid" name="fid" required>
+            </div>
+            <div class="div2">
+                <label for="lname">Name</label>
+                <input type="text" id="lname" name="lname" required>
+            </div>
+            <div class="div4">
+                <label for="lphone">Price</label>
+                <input type="tel" id="lphone" name="lphone" required>
+            </div>
+            <div class="div7">
+                <button type="submit" id="buttonAddClient" style="font-size:3vw"><b>Submit</b></button>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

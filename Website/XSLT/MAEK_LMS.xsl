@@ -122,7 +122,7 @@
               </tr>
               <xsl:for-each select="products/product">
                 <tr>
-                  <td>
+                  <td class="idSquare">
                     <xsl:value-of select="@id" />
                   </td>
                   <td>
@@ -135,15 +135,6 @@
               </xsl:for-each>
             </table>
           </article>
-
-          <!--Second
-          Side Image-->
-
-          <aside class="aside2AddUser">
-            <button type="button" id="buttonModifyProduct" style="font-size:3vw">
-              <b>Modify Product</b>
-            </button>
-          </aside>
 
           <!--Footer-->
 
