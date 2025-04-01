@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en" class="selectUserWindow">
 
 <head>
@@ -11,11 +12,24 @@
 
 <body>
     <div class="contenedorDelete">
-        <label for="opciones">Select the user you want to delete:</label>
-        <select class="selectUser" id="selectUser">
-            <option value="">Cargando...</option>
-        </select>
+        <form action="deleteUser.php" method="POST">
+            <label for="selectUser">Select the user you want to delete:</label>
+            <select class="selectUser" id="selectUser">
+                <option value="">Cargando...</option>
+            </select>
+            <div class="deleteButtons">
+                <button type="submit" id="buttonDeleteClient" style="font-size:3vw"><b>Delete</b></button>
+                <button type="button" id="buttonCancel" style="font-size:3vw" onclick="cancelAction()"><b>Cancel</b></button>
+            </div>
+        </form>
     </div>
+
+    <script>
+        // Función para manejar el botón "Cancel"
+        function cancelAction() {
+            window.close();
+        }
+    </script>
 </body>
 
 </html>
