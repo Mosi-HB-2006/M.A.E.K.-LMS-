@@ -1,41 +1,36 @@
-<?php //Obtener los clientes para el select
-//Falta crear un xq que tenga la consulta
-
-// Mostrar errores en el navegador (para depuración)
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+<?php
 
 require_once("BDConexion.php");
 
-header("Content-Type: application/json"); // Se devuelve una respuesta JSON
+header("Content-Type: application/json");
 
 try {
-    $session = new Session();
+    $rutaXq = "DeleteClient.xq";
 
-    // Realizar la consulta XQuery
-    $query = $session->query("
-        for \$cliente in doc('http://localhost/M.A.E.K.-LMS-/Website/XML/MAEK_LMS.xml')/maek/clients/client
-        return data(\$cliente/@dni)
-    ");
-
-    // Ejecutar la consulta y obtener los resultados
-    $resultados = [];
-    while ($query->more()) {
-        $resultados[] = $query->next();
+    if (!file_exists($rutaXq)) {
+        throw new Exception("El archivo XQuery no existe: " . $rutaXq);
     }
+
+    $fichero = fopen($rutaXq, "r");
+    $xq = fread($fichero, filesize($rutaXq));
+    fclose($fichero);
+
+    $session = new Session();
+    $session->execute("open Maek");
+
+    $query = $session->query($xq);
+    $query->bind('$dni', $_GET["dni"] ?? "0");
+
+    $resultados = $query->execute();
 
     $query->close();
     $session->close();
 
-    // Devolver los datos en formato JSON
-    if (count($resultados) > 0) {
-        echo json_encode(["success" => true, "data" => $resultados, "message" => "Datos recogidos correctamente"]);
-    } else {
-        echo json_encode(["success" => false, "message" => "No se encontraron clientes"]);
-    }
+    include 'BDExport.php';
 
-} catch (Exception $e) {
-    // Si hay un error, devolverlo en formato JSON
+    echo json_encode(["success" => true, "message" => "Cliente eliminado correctamente"]);
+    
+}   catch (Exception $e) {
     echo json_encode(["success" => false, "error" => $e->getMessage()]);
 }
 ?>

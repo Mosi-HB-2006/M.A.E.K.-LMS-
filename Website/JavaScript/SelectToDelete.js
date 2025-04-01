@@ -3,7 +3,7 @@ window.onload = function () {
 
     console.log("Iniciando la solicitud fetch..."); 
 
-    fetch("http://localhost/M.A.E.K.-LMS-/basex/BDDelete.php") // Llamamos al archivo PHP
+    fetch("http://localhost/M.A.E.K.-LMS-/basex/BDGetDNI.php") // Llamamos al archivo PHP
         .then(response => {
             console.log("Respuesta recibida, verificando si es JSON...");
             return response.json();  // Convertimos la respuesta a JSON
@@ -45,4 +45,34 @@ window.onload = function () {
         .catch(error => {
             console.error("Error en fetch:", error);
         });
+};
+
+// Funcion para el boton Cancelar
+function exit() {
+    window.close();
+};
+
+function deleteUser() {
+
+    const dni = document.getElementById("selectUser").value; // Obtener el DNI seleccionado
+    console.log("DNI seleccionado:", dni); // Mostrar el DNI seleccionado en la consola
+
+    if (dni === "") {
+        alert("Por favor, selecciona un cliente para eliminar.");
+        return;
+    }
+
+    if (confirm("¿Are you sure you want to delete the client with DNI " + dni + "?")) {
+        fetch("http://localhost/M.A.E.K.-LMS-/basex/BDDelete.php?dni=${dni}")
+            .then(response => response.text())
+            .then(data => {
+                console.log("Respuesta del servidor:", data);
+                alert("Cliente eliminado correctamente.");
+                window.close();
+            })
+            .catch(error => {
+                console.error("Error al eliminar el cliente:", error);
+                alert("Error al eliminar el cliente. Por favor, inténtalo de nuevo.");
+            });
+    }
 };
