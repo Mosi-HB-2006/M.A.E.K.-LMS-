@@ -3,10 +3,10 @@ window.onload = function () {
   const buttonDeleteData = document.getElementById("buttonDeleteUser");
 
   buttonAddData.onclick = function () {
-    window.open("PopUpAddUser.html", "_blank", "width=631,height=300");
+    window.open("../HTML/PopUpAddUser.html", "_blank", "width=631,height=300");
   };
   buttonDeleteData.onclick = function () {
-    window.open("SelectUser.html", "_blank", "width=631,height=300");
+    window.open("../HTML/SelectUser.html", "_blank", "width=631,height=300");
   };
 
   document.querySelectorAll(".idSquare").forEach(square => {
@@ -19,7 +19,7 @@ window.onload = function () {
             queryParams.append("col1", rowData[1]);
             queryParams.append("col2", rowData[2]);
 
-      window.open(`PopUpModifyProduct.html?id=${queryParams.get("id")}&name=${queryParams.get("col1")}&price=${queryParams.get("col2")}`, "_blank", "width=631,height=200");
+      window.open(`../HTML/PopUpModifyProduct.html?id=${queryParams.get("id")}&name=${queryParams.get("col1")}&price=${queryParams.get("col2")}`, "_blank", "width=631,height=200");
     });
   });
 

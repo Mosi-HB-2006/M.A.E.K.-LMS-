@@ -1,12 +1,12 @@
 window.onload = function () {
-    const selectElement = document.getElementById("selectUser");
+    const selectElement = document.getElementById("selectUser"); // Este es el ID del select en el HTML
 
-    console.log("Iniciando la solicitud fetch...");
+    console.log("Iniciando la solicitud fetch..."); 
 
     fetch("http://localhost/M.A.E.K.-LMS-/basex/BDDelete.php") // Llamamos al archivo PHP
         .then(response => {
             console.log("Respuesta recibida, verificando si es JSON...");
-            return response.json();  // Convertimos la respuesta en JSON
+            return response.json();  // Convertimos la respuesta a JSON
         })
         .then(data => {
             // Verificamos si la respuesta tiene errores
@@ -17,20 +17,23 @@ window.onload = function () {
                 return;
             }
 
-            // Verificamos si los datos contienen elementos válidos
-            if (data && Array.isArray(data) && data.length > 0) {
-                console.log("Datos válidos recibidos:", data);
+            // Es importante acceder a data.data
+            // Ya que data es todo el objeto JSON y data.data es el array que queremos
+            // Comprobar que sea un array nos evita del error de intentar recorrer algo que no es un array
+            if (data.success && Array.isArray(data.data) && data.data.length > 0) {
+                console.log("Datos válidos recibidos:", data.data);
 
-                // Borrar el select para poner los nuevos datos
+                // Borrar el select para poner los nuevos datos, incluso el mensaje predeterminado
                 selectElement.innerHTML = "";
 
                 // Recorrer los datos y añadir opciones al select
-                data.forEach(cliente => {
-                    console.log("Agregando cliente:", cliente);  // Ver los datos de cada cliente
+                data.data.forEach(cliente => {
+                    console.log("Agregando cliente:", cliente);  // Mostrar los datos de cada cliente
                     let opcion = document.createElement("option");
                     opcion.value = cliente; 
                     opcion.textContent = cliente; 
-                    selectElement.appendChild(opcion);
+                    selectElement.appendChild(opcion); 
+                    // appendChild añade un hijo en este caso una opción al select
                 });
 
                 console.log("Opciones añadidas correctamente al select.");
