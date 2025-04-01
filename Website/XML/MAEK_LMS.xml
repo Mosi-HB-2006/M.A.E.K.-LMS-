@@ -30,6 +30,12 @@
       <male/>
       <phone>123455678</phone>
     </client>
+  <client dni="22222222B" image="p">
+      <name>Test</name>
+      <vip/>
+      <male/>
+      <phone>999999999</phone>
+    </client>
   </clients>
   <products>
     <product id="123A">
