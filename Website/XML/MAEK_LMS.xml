@@ -12,43 +12,16 @@
       <male/>
       <phone>123456789</phone>
     </client>
-    <client dni="11111111H" image="T">
-      <name>Mosi</name>
-      <vip/>
-      <male/>
-      <phone>801458321</phone>
-    </client>
-    <client dni="11111111H" image="1">
-      <name>Kevin</name>
-      <vip/>
-      <male/>
-      <phone>111111111</phone>
-    </client>
-    <client dni="11111111H" image="f">
+  <client dni="22222222A" image="http://">
       <name>Ekaitz</name>
-      <vip/>
       <male/>
-      <phone>123455678</phone>
-    </client>
-  <client dni="22222222B" image="p">
-      <name>Test</name>
-      <vip/>
-      <male/>
-      <phone>999999999</phone>
+      <phone>666666666</phone>
     </client>
   </clients>
   <products>
     <product id="123A">
       <name>CPU</name>
-      <price>199.99</price>
-    </product>
-    <product id="345B">
-      <name>Motherboard</name>
-      <price>99.99</price>
-    </product>
-    <product id="678C">
-      <name>Grpahics card</name>
-      <price>840.99</price>
+      <price>84.99</price>
     </product>
   </products>
 </maek>

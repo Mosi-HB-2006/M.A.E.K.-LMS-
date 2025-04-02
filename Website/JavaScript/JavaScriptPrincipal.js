@@ -9,17 +9,23 @@ window.onload = function () {
     window.open("../HTML/SelectUser.html", "_blank", "width=631,height=300");
   };
 
-  document.querySelectorAll(".idSquare").forEach(square => {
+  document.querySelectorAll(".idSquare").forEach((square) => {
     square.addEventListener("click", function () {
-      let row = this.closest("tr"); 
-            let rowData = Array.from(row.children).map(td => td.textContent.trim());
+      let row = this.closest("tr");
+      let rowData = Array.from(row.children).map((td) => td.textContent.trim());
 
-            let queryParams = new URLSearchParams();
-            queryParams.append("id", rowData[0]);
-            queryParams.append("col1", rowData[1]);
-            queryParams.append("col2", rowData[2]);
+      let queryParams = new URLSearchParams();
+      queryParams.append("id", rowData[0]);
+      queryParams.append("col1", rowData[1]);
+      queryParams.append("col2", rowData[2]);
 
-      window.open(`../HTML/PopUpModifyProduct.html?id=${queryParams.get("id")}&name=${queryParams.get("col1")}&price=${queryParams.get("col2")}`, "_blank", "width=631,height=200");
+      window.open(
+        `../HTML/PopUpModifyProduct.html?id=${queryParams.get(
+          "id"
+        )}&name=${queryParams.get("col1")}&price=${queryParams.get("col2")}`,
+        "_blank",
+        "width=631,height=200"
+      );
     });
   });
 
@@ -31,7 +37,7 @@ window.onload = function () {
   fetch("http://localhost/M.A.E.K.-LMS-/basex/BDExport.php")
     .then((response) => response.json())
     .then((data) => {
-      console.log("Datos recibidos:", data);
+      console.log("Data received:", data);
       localStorage.setItem("hasLoaded", "true");
       window.location.reload();
     })

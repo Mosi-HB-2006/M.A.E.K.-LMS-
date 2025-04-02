@@ -1,24 +1,25 @@
 <?php
 require_once("BDConexion.php");
 
-header("Content-Type: application/json"); // Se debe devolver JSON
+// Must return JSON
+header("Content-Type: application/json");
 
 try {
-    $rutaXq = "InsertClient.xq";
+    $pathXq = "InsertClient.xq";
 
-    if (!file_exists($rutaXq)) {
-        throw new Exception("El archivo XQuery no existe: " . $rutaXq);
+    if (!file_exists($pathXq)) {
+        throw new Exception("The XQuery file not exists: " . $pathXq);
     }
 
-    $fichero = fopen($rutaXq, "r");
-    $xq = fread($fichero, filesize($rutaXq));
-    fclose($fichero);
+    $file = fopen($pathXq, "r");
+    $xq = fread($file, filesize($pathXq));
+    fclose($file);
 
-    // Iniciar la sesión con BaseX
+    // New BaseX session
     $session = new Session();
     $session->execute("open Maek");
 
-    // Preparar la consulta XQuery
+    // Prepare the XQuery query
     $query = $session->query($xq);
     $query->bind('$dni', $_GET["dni"] ?? "0");
     $query->bind('$name', $_GET["name"] ?? "0");
@@ -27,18 +28,19 @@ try {
     $query->bind('$image', $_GET["image"] ?? "0");
     $query->bind('$vip', $_GET["vip"] ?? "0");
 
-    // Ejecutar el XQuery
+    // Execute the XQuery
     $result = $query->execute();
 
-    // Cerrar query y sesión
+    // Close query and session
     $query->close();
     $session->close();
 
-    // Llamar a BDExport.php para exportar datos
+    // Call BDExport.php for export data
     include 'BDExport.php';
 
-    // Respuesta exitosa en JSON
-    echo json_encode(["success" => true, "message" => "Datos insertados correctamente"]);
+    // Return data in JSON format
+    echo json_encode(["success" => true, "message" => "Data modified correctly"]);
 } catch (Exception $e) {
+    // If there is an error, return it in JSON format
     echo json_encode(["success" => false, "error" => $e->getMessage()]);
 }

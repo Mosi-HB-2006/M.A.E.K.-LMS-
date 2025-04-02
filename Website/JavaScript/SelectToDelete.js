@@ -1,78 +1,77 @@
 window.onload = function () {
-    const selectElement = document.getElementById("selectUser"); // Este es el ID del select en el HTML
+  const selectElement = document.getElementById("selectUser"); // Selected ID
 
-    console.log("Iniciando la solicitud fetch..."); 
+  fetch("http://localhost/M.A.E.K.-LMS-/basex/BDGetDNI.php") // Fetch to the PHP file
+    .then((response) => {
+      // Check if the response is successful
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json(); // Change this from response.text() to response.json()
+    })
+    .then((data) => {
+      console.log("Response from server:", data);
 
-    fetch("http://localhost/M.A.E.K.-LMS-/basex/BDGetDNI.php") // Llamamos al archivo PHP
-        .then(response => {
-            console.log("Respuesta recibida, verificando si es JSON...");
-            return response.json();  // Convertimos la respuesta a JSON
-        })
-        .then(data => {
-            // Verificamos si la respuesta tiene errores
-            console.log("Datos obtenidos:", data);
-            
-            if (data.error) {
-                console.error("Error al obtener los datos:", data.error);
-                return;
-            }
+      if (data.error) {
+        console.error("Error obtaining data:", data.error);
+        return;
+      }
 
-            // Es importante acceder a data.data
-            // Ya que data es todo el objeto JSON y data.data es el array que queremos
-            // Comprobar que sea un array nos evita del error de intentar recorrer algo que no es un array
-            if (data.success && Array.isArray(data.data) && data.data.length > 0) {
-                console.log("Datos válidos recibidos:", data.data);
+      // We need access data.data since data is the entire JSON object and data.data is the array we want
+      // Checking that it is an array prevents us from the error of trying to traverse something that is not an array
+      if (data.success && Array.isArray(data.data) && data.data.length > 0) {
+        console.log("Received data:", data.data);
 
-                // Borrar el select para poner los nuevos datos, incluso el mensaje predeterminado
-                selectElement.innerHTML = "";
+        // Clear select to add the new data
+        selectElement.innerHTML = "";
 
-                // Recorrer los datos y añadir opciones al select
-                data.data.forEach(cliente => {
-                    console.log("Agregando cliente:", cliente);  // Mostrar los datos de cada cliente
-                    let opcion = document.createElement("option");
-                    opcion.value = cliente; 
-                    opcion.textContent = cliente; 
-                    selectElement.appendChild(opcion); 
-                    // appendChild añade un hijo en este caso una opción al select
-                });
-
-                console.log("Opciones añadidas correctamente al select.");
-            } else {
-                console.error("No se encontraron clientes válidos en los datos.");
-                selectElement.innerHTML = "<option>No hay clientes disponibles.</option>";
-            }
-        })
-        .catch(error => {
-            console.error("Error en fetch:", error);
+        // Loop through data and aggregate it to select
+        data.data.forEach((cliente) => {
+          let option = document.createElement("option");
+          option.value = cliente;
+          option.textContent = cliente;
+          // appendChild to add a option to the select
+          selectElement.appendChild(option);
         });
+      } else {
+        selectElement.innerHTML =
+          "<option>There are no clients available.</option>";
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      alert("Error sending the request: " + error.message);
+    });
 };
 
-// Funcion para el boton Cancelar
+// Cancel button
 function exit() {
-    window.close();
-};
+  window.close();
+}
 
 function deleteUser() {
+  // Obtain the selected DNI
+  const dni = document.getElementById("selectUser").value;
+  console.log("Selected DNI:", dni);
 
-    const dni = document.getElementById("selectUser").value; // Obtener el DNI seleccionado
-    console.log("DNI seleccionado:", dni); // Mostrar el DNI seleccionado en la consola
+  if (dni === "") {
+    alert("Please, select a user to be deleted.");
+    return;
+  }
 
-    if (dni === "") {
-        alert("Por favor, selecciona un cliente para eliminar.");
-        return;
-    }
-
-    if (confirm("¿Are you sure you want to delete the client with DNI " + dni + "?")) {
-        fetch("http://localhost/M.A.E.K.-LMS-/basex/BDDelete.php?dni=${dni}")
-            .then(response => response.text())
-            .then(data => {
-                console.log("Respuesta del servidor:", data);
-                alert("Cliente eliminado correctamente.");
-                window.close();
-            })
-            .catch(error => {
-                console.error("Error al eliminar el cliente:", error);
-                alert("Error al eliminar el cliente. Por favor, inténtalo de nuevo.");
-            });
-    }
-};
+  if (
+    confirm("Are you sure you want to delete the client with DNI " + dni + "?")
+  ) {
+    fetch(`http://localhost/M.A.E.K.-LMS-/basex/BDDelete.php?dni=${dni}`)
+      .then((response) => response.text())
+      .then((data) => {
+        console.log("Server response:", data);
+        alert("Client deleted correctly.");
+        window.close();
+      })
+      .catch((error) => {
+        console.error("Error deleting the client:", error);
+        alert("Error deleting the client. Please, try again.");
+      });
+  }
+}

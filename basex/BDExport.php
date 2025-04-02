@@ -5,59 +5,61 @@ require_once("BDConexion.php");
 header('Content-Type: application/json');
 
 try {
-  // Iniciar la sesión con BaseX
+  // New BaseX session
   $session = new Session();
   $session->execute("open Maek");
 
-  // Ruta absoluta del XML
+  // Files paths
   $xmlFilePath = $_SERVER['DOCUMENT_ROOT'] . "/M.A.E.K.-LMS-/Website/XML/MAEK_LMS.xml";
   $xslFilePath = $_SERVER['DOCUMENT_ROOT'] . "/M.A.E.K.-LMS-/Website/XSLT/MAEK_LMS.xsl";
   $htmlFilePath = $_SERVER['DOCUMENT_ROOT'] . "/M.A.E.K.-LMS-/Website/HTML/AddUserXSLT.html";
 
-  // Exportar a un archivo XML
+  // Export to an XML file
   $exportQuery = $session->query("db:export('Maek', '$xmlFilePath', map {'method': 'xml', 'indent': 'yes'})");
   $exportResult = $exportQuery->execute();
   $exportQuery->close();
 
-  // Cerrar sesión BaseX
+  // Close BaseX session
   $session->close();
 
-  // Verificar si el XML se creó correctamente
+  // Verify if the xml is generated correctly
   if (!file_exists($xmlFilePath)) {
-    throw new Exception("Error: El archivo XML no se creó en $xmlFilePath");
+    throw new Exception("Error: The XML file is not generated in $xmlFilePath");
   }
 
-  // Realizar la transformación XSLT
+  // Make the XSLT transformation
   $xml = new DOMDocument();
   if (!$xml->load($xmlFilePath)) {
-    throw new Exception("Error al cargar el XML en $xmlFilePath");
+    throw new Exception("Error loading the XML on $xmlFilePath");
   }
 
   $xsl = new DOMDocument();
   if (!$xsl->load($xslFilePath)) {
-    throw new Exception("Error al cargar el XSLT en $xslFilePath");
+    throw new Exception("Error loading the XSLT on $xslFilePath");
   }
 
-  // Crear procesador de XSLT
+  // Create XSLT processor
   $processor = new XSLTProcessor();
   $processor->importStylesheet($xsl);
 
-  // Transformar a HTML
+  // Transform to HTML
   $htmlOutput = $processor->transformToXML($xml);
   if ($htmlOutput === false) {
     throw new Exception("Error al transformar el XML con XSLT");
   }
 
-  // Guardar la salida en el archivo HTML
+  // Save the output in to the HTML
   if (file_put_contents($htmlFilePath, $htmlOutput) === false) {
     throw new Exception("Error al escribir el archivo HTML en $htmlFilePath");
   }
 
+  // Return data in JSON format
   echo json_encode([
     'success' => true,
     'message' => 'Exportación y transformación XSLT completadas con éxito'
   ]);
 } catch (Exception $e) {
+  // If there is an error, return it in JSON format
   http_response_code(500);
   echo json_encode([
     'success' => false,

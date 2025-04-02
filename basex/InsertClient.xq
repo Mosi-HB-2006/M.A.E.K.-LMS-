@@ -15,5 +15,4 @@ let $newClient :=
     <phone>{$phone}</phone>
   </client>
 
-(: Insertar el nuevo cliente dentro de clients del documento MAEK_LMS.xml :)
 return insert node $newClient into $doc//clients
