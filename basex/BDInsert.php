@@ -4,7 +4,7 @@ require_once("BDConexion.php");
 header("Content-Type: application/json"); // Se debe devolver JSON
 
 try {
-    $rutaXq = "prueba.xq";
+    $rutaXq = "InsertClient.xq";
 
     if (!file_exists($rutaXq)) {
         throw new Exception("El archivo XQuery no existe: " . $rutaXq);
