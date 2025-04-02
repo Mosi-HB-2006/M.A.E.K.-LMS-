@@ -45,18 +45,18 @@ try {
   // Transform to HTML
   $htmlOutput = $processor->transformToXML($xml);
   if ($htmlOutput === false) {
-    throw new Exception("Error al transformar el XML con XSLT");
+    throw new Exception("Error transforming the XML with XSLT");
   }
 
   // Save the output in to the HTML
   if (file_put_contents($htmlFilePath, $htmlOutput) === false) {
-    throw new Exception("Error al escribir el archivo HTML en $htmlFilePath");
+    throw new Exception("Error writing the HTML file on $htmlFilePath");
   }
 
   // Return data in JSON format
   echo json_encode([
     'success' => true,
-    'message' => 'Exportación y transformación XSLT completadas con éxito'
+    'message' => 'XSLT exportation and transformation completed correctly'
   ]);
 } catch (Exception $e) {
   // If there is an error, return it in JSON format
