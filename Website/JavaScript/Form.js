@@ -61,7 +61,7 @@ function processFormData(formData) {
       return response.text();
     })
     .then((data) => {
-      console.log("Response from server:", data);
+      console.log("Server response:", data);
 
       // If addUserXSLT window is still open, reload it and close the PopUp window
       if (window.opener && !window.opener.closed) {

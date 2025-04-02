@@ -12,11 +12,6 @@
       <male/>
       <phone>123456789</phone>
     </client>
-  <client dni="22222222A" image="http://">
-      <name>Ekaitz</name>
-      <male/>
-      <phone>666666666</phone>
-    </client>
   </clients>
   <products>
     <product id="123A">

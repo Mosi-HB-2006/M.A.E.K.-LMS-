@@ -51,7 +51,9 @@ function exit() {
   window.close();
 }
 
-function deleteUser() {
+function submitForm(event) {
+  event.preventDefault();
+
   // Obtain the selected DNI
   const dni = document.getElementById("selectUser").value;
   console.log("Selected DNI:", dni);
@@ -65,11 +67,22 @@ function deleteUser() {
     confirm("Are you sure you want to delete the client with DNI " + dni + "?")
   ) {
     fetch(`http://localhost/M.A.E.K.-LMS-/basex/BDDelete.php?dni=${dni}`)
-      .then((response) => response.text())
+      .then((response) => {
+        // Check if the response is successful
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        return response.text();
+      })
       .then((data) => {
         console.log("Server response:", data);
-        alert("Client deleted correctly.");
-        window.close();
+        // If addUserXSLT window is still open, reload it and close the SelectUser window
+        if (window.opener && !window.opener.closed) {
+          alert("Client deleted correctly.");
+          window.opener.location.reload();
+          window.close();
+        }
       })
       .catch((error) => {
         console.error("Error deleting the client:", error);
