@@ -22,8 +22,6 @@ window.onload = function () {
       // We need access data.data since data is the entire JSON object and data.data is the array we want
       // Checking that it is an array prevents us from the error of trying to traverse something that is not an array
       if (data.success && Array.isArray(data.data) && data.data.length > 0) {
-        console.log("Received data:", data.data);
-
         // Clear select to add the new data
         selectElement.innerHTML = "";
 
