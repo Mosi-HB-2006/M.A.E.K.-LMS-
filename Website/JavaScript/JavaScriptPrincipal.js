@@ -16,13 +16,13 @@ window.onload = function () {
 
       let queryParams = new URLSearchParams();
       queryParams.append("id", rowData[0]);
-      queryParams.append("col1", rowData[1]);
-      queryParams.append("col2", rowData[2]);
+      queryParams.append("name", rowData[1]);
+      queryParams.append("price", rowData[2]);
 
       window.open(
-        `../HTML/PopUpModifyProduct.html?id=${queryParams.get(
+        `../basex/ShowProductPage.php?id=${queryParams.get(
           "id"
-        )}&name=${queryParams.get("col1")}&price=${queryParams.get("col2")}`,
+        )}&name=${queryParams.get("name")}&price=${queryParams.get("price")}`,
         "_blank",
         "width=631,height=200"
       );
