@@ -17,7 +17,7 @@ function submitForm(event) {
   }
 
   // Show a confirmation dialog. If the user cancels, stop execution; otherwise, proceed with processFormData
-  if (!confirm("Are you sure?")) {
+  if (!confirm("Are you sure you want to add this user to the DB?")) {
     return false;
   }
 

@@ -44,7 +44,7 @@
             </div>
 
             <!--Title
-                        Banner-->
+            Banner-->
 
             <div id="titleAddUser">
               <h1>Add A User!</h1>
@@ -52,52 +52,56 @@
           </header>
 
           <!--First
-                    Article-->
+          Article-->
 
           <article class="article1AddUser" id="articalAddUser">
             <h2>Clients</h2>
-            <table border="1px">
-              <tr>
-                <th>Dni</th>
-                <th>Name</th>
-                <th>Gender</th>
-                <th>Phone Number</th>
-                <th>Image</th>
-                <th>VIP</th>
-              </tr>
-
-              <xsl:for-each select="clients/client">
-                <xsl:sort select="@dni" order="ascending" />
-                <tr>
-                  <td>
-                    <xsl:value-of select="@dni" />
-                  </td>
-                  <td>
-                    <xsl:value-of select="name" />
-                  </td>
-                  <td>
-                    <xsl:choose>
-                      <xsl:when test="male"> Male </xsl:when>
-                      <xsl:otherwise> Female </xsl:otherwise>
-                    </xsl:choose>
-                  </td>
-                  <td>
-                    <xsl:value-of select="phone" />
-                  </td>
-                  <td>
-                    <img width="60px" src="{@image}" alt="{@image}"></img>
-                  </td>
-                  <td>
-                    <xsl:choose>
-                      <xsl:when test="vip"> ✔ </xsl:when>
-                      <xsl:otherwise>
-                        <b>X</b>
-                      </xsl:otherwise>
-                    </xsl:choose>
-                  </td>
-                </tr>
-              </xsl:for-each>
-            </table>
+            <xsl:choose>
+              <xsl:when test="count(clients/client) > 0">
+                <table border="1px">
+                  <tr>
+                    <th>Dni</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Phone Number</th>
+                    <th>Image</th>
+                    <th>VIP</th>
+                  </tr>
+                  <xsl:for-each select="clients/client">
+                    <xsl:sort select="@dni" order="ascending" />
+                    <tr>
+                      <td>
+                        <xsl:value-of select="@dni" />
+                      </td>
+                      <td>
+                        <xsl:value-of select="name" />
+                      </td>
+                      <td>
+                        <xsl:choose>
+                          <xsl:when test="male"> Male </xsl:when>
+                          <xsl:otherwise> Female </xsl:otherwise>
+                        </xsl:choose>
+                      </td>
+                      <td>
+                        <xsl:value-of select="phone" />
+                      </td>
+                      <td>
+                        <img width="60px" src="{@image}" alt="{@image}" />
+                      </td>
+                      <td>
+                        <xsl:choose>
+                          <xsl:when test="vip"> ✔ </xsl:when>
+                          <xsl:otherwise><b>X</b></xsl:otherwise>
+                        </xsl:choose>
+                      </td>
+                    </tr>
+                  </xsl:for-each>
+                </table>
+              </xsl:when>
+              <xsl:otherwise>
+                <p>There are no clients in the DB.</p>
+              </xsl:otherwise>
+            </xsl:choose>
           </article>
 
           <!--First
@@ -114,27 +118,35 @@
 
           <article class="article2AddUser" id="ArticalProducts">
             <h2>Products</h2>
-            <table border="1px">
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Price</th>
-              </tr>
-              <xsl:for-each select="products/product">
-                <tr>
-                  <td class="idSquare">
-                    <xsl:value-of select="@id" />
-                  </td>
-                  <td>
-                    <xsl:value-of select="name" />
-                  </td>
-                  <td>
-                    <xsl:value-of select="price" />
-                  </td>
-                </tr>
-              </xsl:for-each>
-            </table>
+            <xsl:choose>
+              <xsl:when test="count(products/product) > 0">
+                <table border="1px">
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                  </tr>
+                  <xsl:for-each select="products/product">
+                    <tr>
+                      <td class="idSquare">
+                        <xsl:value-of select="@id" />
+                      </td>
+                      <td>
+                        <xsl:value-of select="name" />
+                      </td>
+                      <td>
+                        <xsl:value-of select="price" />
+                      </td>
+                    </tr>
+                  </xsl:for-each>
+                </table>
+              </xsl:when>
+              <xsl:otherwise>
+                <p>There are no products.</p>
+              </xsl:otherwise>
+            </xsl:choose>
           </article>
+
 
           <!--Footer-->
 
