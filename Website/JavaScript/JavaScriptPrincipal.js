@@ -20,9 +20,8 @@ window.onload = function () {
       queryParams.append("price", rowData[2]);
 
       window.open(
-        `../basex/ShowProductPage.php?id=${queryParams.get(
-          "id"
-        )}&name=${queryParams.get("name")}&price=${queryParams.get("price")}`,
+        `../../basex/ShowProductPage.php?id=${queryParams.get("id")}
+        &name=${queryParams.get("name")}&price=${queryParams.get("price")}`,
         "_blank",
         "width=631,height=200"
       );
