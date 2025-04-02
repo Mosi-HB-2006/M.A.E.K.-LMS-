@@ -2,8 +2,6 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <!-- XSLT storage the received data from php into the parameters -->
     <xsl:param name="id" />
-    <xsl:param name="name" />
-    <xsl:param name="price" />
 
     <xsl:template match="/">
         <html>
@@ -15,9 +13,11 @@
         </head>
         <body>
             <div class=""> 
-                <p><strong>ID:</strong> <xsl:value-of select="maek/products/product[@id=$id]" /></p>
-                <p><strong>Name:</strong> <xsl:value-of select="maek/products/product[name=$name]" /></p>
-                <p><strong>Price:</strong> <xsl:value-of select="maek/products/product[@price=$price]" /></p>
+                <xsl:for-each select="maek/products/product[@id='123A']">
+                    <p><strong>ID:</strong> <xsl:value-of select="@id" /></p>
+                    <p><strong>Name:</strong> <xsl:value-of select="name" /></p>
+                    <p><strong>Price:</strong> <xsl:value-of select="price" /></p>
+                </xsl:for-each>
             </div>
             <button class="" onclick="window.location.href='../Website/HTML/PopUpModifyProduct.html'">
                 Modify

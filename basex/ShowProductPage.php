@@ -1,12 +1,10 @@
 <?php
-    if (!isset($_GET['id']) || !isset($_GET['name']) || !isset($_GET['price'])) {
+    if (!isset($_GET['id'])) {
         throw new Exception("Missing data to generate the page.");
     }
 
     // htmlspecialchars() is to prevent malicious code
     $id = htmlspecialchars($_GET['id']);
-    $name = htmlspecialchars($_GET['name']);
-    $price = htmlspecialchars($_GET['price']);
 
     // Path to the XML and XSLT files
     $xmlFile = "../Website/XML/MAEK_LMS.xml";
@@ -27,13 +25,10 @@
     // second is the parameter name in the XSLT, 
     // third is the value in the PHP
     $proc->setParameter('', 'id', $id);
-    $proc->setParameter('', 'name', $name);
-    $proc->setParameter('', 'price', $price);
 
     // Transform the XML into HTML
     $html = $proc->transformToXML($xml);
 
-    echo "<script>console.log('ID: $id, Name: $name, Price: $price');</script>";
     // Display the HTML
     echo $html;
 ?>
