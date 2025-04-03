@@ -10,23 +10,17 @@ window.onload = function () {
     document.getElementById("fname").value = squareName;
     document.getElementById("fprice").value = squarePrice;
   }
-
-  // Adding button function
-  document
-    .getElementById("modifyProductForm")
-    .addEventListener("submit", function (event) {
-      if (confirm("Are you sure?")) {
-        submitForm(event, squareId);
-      }
-    });
 };
 
-// Function for control the form submit
-function submitForm(event, squareId) {
+function submitForm(event) {
   event.preventDefault();
 
+  if (!confirm("Are you sure?")) {
+    return false;
+  }
+
   const formData = {
-    id: squareId,
+    id: document.getElementById("lid").textContent,
     name: document.getElementById("fname").value,
     price: document.getElementById("fprice").value,
   };
@@ -36,15 +30,17 @@ function submitForm(event, squareId) {
   }
 
   processFormData(formData);
+  return false;
 }
 
-// Apply restrictions
+// Function to validate if the form data meets all validation rules
 function validateForm(formData) {
+  // Check if required fields are not empty
   if (!formData.name || !formData.price) {
     alert("Please fill all required fields");
     return false;
   }
-
+  // Check if the price is negative
   if (formData.price < 0) {
     alert("Please use a valid price");
     return false;
@@ -52,10 +48,15 @@ function validateForm(formData) {
   return true;
 }
 
-// Fetch to the PHP file
+// Function to send a request to the PHP script with form data as query parameters
 function processFormData(formData) {
+  // Fetch to the PHP file
   fetch(
-    `http://localhost/M.A.E.K.-LMS-/basex/BDModify.php?id=${formData.id}&name=${formData.name}&price=${formData.price}`
+    `http://localhost/M.A.E.K.-LMS-/basex/BDModify.php?id=${encodeURIComponent(
+      formData.id
+    )}&name=${encodeURIComponent(formData.name)}&price=${encodeURIComponent(
+      formData.price
+    )}`
   )
     .then((response) => {
       if (!response.ok) {
@@ -63,7 +64,6 @@ function processFormData(formData) {
       }
       return response.text();
     })
-
     .then((data) => {
       console.log("Response from server:", data);
       if (window.opener && !window.opener.closed) {
@@ -71,7 +71,6 @@ function processFormData(formData) {
         window.close();
       }
     })
-
     .catch((error) => {
       console.error("Error:", error);
       alert("Error sending the request: " + error.message);
