@@ -1,7 +1,9 @@
 window.onload = function () {
+  // Getting the button elements
   const buttonAddData = document.getElementById("buttonAddUser");
   const buttonDeleteData = document.getElementById("buttonDeleteUser");
 
+  // Setting buttons functions
   buttonAddData.onclick = function () {
     window.open("../HTML/PopUpAddUser.html", "_blank", "width=631,height=300");
   };
@@ -9,6 +11,7 @@ window.onload = function () {
     window.open("../HTML/SelectUser.html", "_blank", "width=631,height=300");
   };
 
+  // For select a product id and see the information apart
   document.querySelectorAll(".idSquare").forEach((square) => {
     square.addEventListener("click", function () {
       let row = this.closest("tr");
@@ -22,11 +25,13 @@ window.onload = function () {
     });
   });
 
+  // To avoid a infinite loop
   if (localStorage.getItem("hasLoaded")) {
     localStorage.removeItem("hasLoaded");
     return;
   }
 
+  // Fetch to the PHP file
   fetch("http://localhost/M.A.E.K.-LMS-/basex/BDExport.php")
     .then((response) => response.json())
     .then((data) => {

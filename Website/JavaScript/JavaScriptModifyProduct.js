@@ -1,4 +1,5 @@
 window.onload = function () {
+  // Get product data from the url
   const urlParams = new URLSearchParams(window.location.search);
   const squareId = urlParams.get("id");
   const squareName = urlParams.get("name");
@@ -10,6 +11,7 @@ window.onload = function () {
     document.getElementById("fprice").value = squarePrice;
   }
 
+  // Adding button function
   document
     .getElementById("modifyProductForm")
     .addEventListener("submit", function (event) {
@@ -19,6 +21,7 @@ window.onload = function () {
     });
 };
 
+// Function for control the form submit
 function submitForm(event, squareId) {
   event.preventDefault();
 
@@ -35,14 +38,21 @@ function submitForm(event, squareId) {
   processFormData(formData);
 }
 
+// Apply restrictions
 function validateForm(formData) {
   if (!formData.name || !formData.price) {
     alert("Please fill all required fields");
     return false;
   }
+
+  if (formData.price < 0) {
+    alert("Please use a valid price");
+    return false;
+  }
   return true;
 }
 
+// Fetch to the PHP file
 function processFormData(formData) {
   fetch(
     `http://localhost/M.A.E.K.-LMS-/basex/BDModify.php?id=${formData.id}&name=${formData.name}&price=${formData.price}`

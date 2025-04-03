@@ -1,7 +1,9 @@
 window.onload = function () {
-  const selectElement = document.getElementById("selectUser"); // Selected ID
+  // Selected ID
+  const selectElement = document.getElementById("selectUser");
 
-  fetch("http://localhost/M.A.E.K.-LMS-/basex/BDGetDNI.php") // Fetch to the PHP file
+  // Fetch to the PHP file
+  fetch("http://localhost/M.A.E.K.-LMS-/basex/BDGetDNI.php")
     .then((response) => {
       // Check if the response is successful
       if (!response.ok) {
