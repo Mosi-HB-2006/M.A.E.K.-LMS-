@@ -7,11 +7,23 @@
       <phone>123456789</phone>
     </client>
     
+  <client dni="12345678B" image="http://">
+      <name>Pedro</name>
+      <vip/>
+      <male/>
+      <phone>123456789</phone>
+    </client>
+    <client dni="12345678C" image="https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png">
+      <name>Carlos</name>
+      <vip/>
+      <male/>
+      <phone>123456789</phone>
+    </client>
   </clients>
   <products>
     <product id="123A">
-      <name>GPU</name>
-      <price>12</price>
+      <name>CPU</name>
+      <price>10</price>
     </product>
   </products>
 </maek>

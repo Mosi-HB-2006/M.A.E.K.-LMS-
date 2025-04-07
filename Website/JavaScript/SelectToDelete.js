@@ -3,7 +3,7 @@ window.onload = function () {
   const selectElement = document.getElementById("selectUser");
 
   // Fetch to the PHP file
-  fetch("http://localhost/M.A.E.K.-LMS-/basex/BDGetDNI.php")
+  fetch("http://localhost/M.A.E.K.-LMS-/Website/PHP/BDGetDNI.php")
     .then((response) => {
       // Check if the response is successful
       if (!response.ok) {
@@ -66,7 +66,11 @@ function submitForm(event) {
   if (
     confirm("Are you sure you want to delete the client with DNI " + dni + "?")
   ) {
-    fetch(`http://localhost/M.A.E.K.-LMS-/basex/BDDelete.php?dni=${dni}`)
+    fetch(
+      `http://localhost/M.A.E.K.-LMS-/Website/PHP/BDDelete.php?dni=${encodeURIComponent(
+        dni
+      )}`
+    )
       .then((response) => {
         // Check if the response is successful
         if (!response.ok) {

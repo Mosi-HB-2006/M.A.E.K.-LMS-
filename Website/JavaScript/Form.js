@@ -51,7 +51,13 @@ function validateForm(formData) {
 // Function to send a request to the PHP script with form data as query parameters
 function processFormData(formData) {
   fetch(
-    `http://localhost/M.A.E.K.-LMS-/basex/BDInsert.php?dni=${formData.dni}&name=${formData.name}&gender=${formData.gender}&phone=${formData.phone}&image=${formData.image}&vip=${formData.vip}`
+    `http://localhost/M.A.E.K.-LMS-/Website/PHP/BDInsert.php?dni=${encodeURIComponent(
+      formData.dni
+    )}&name=${encodeURIComponent(formData.name)}&gender=${encodeURIComponent(
+      formData.gender
+    )}&phone=${encodeURIComponent(formData.phone)}&image=${encodeURIComponent(
+      formData.image
+    )}&vip=${encodeURIComponent(formData.vip)}`
   )
     .then((response) => {
       // Check if the response is successful

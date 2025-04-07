@@ -18,7 +18,7 @@ window.onload = function () {
       let id = row.children[0].textContent.trim();
 
       window.open(
-        `../../basex/ShowProductPage.php?id=${id}`,
+        `../PHP/ShowProductPage.php?id=${encodeURIComponent(id)}`,
         "_blank",
         "width=631,height=200"
       );
@@ -32,7 +32,7 @@ window.onload = function () {
   }
 
   // Fetch to the PHP file
-  fetch("http://localhost/M.A.E.K.-LMS-/basex/BDExport.php")
+  fetch("http://localhost/M.A.E.K.-LMS-/Website/PHP/BDExport.php")
     .then((response) => response.json())
     .then((data) => {
       console.log("Data received:", data);

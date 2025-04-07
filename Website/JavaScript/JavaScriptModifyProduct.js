@@ -52,7 +52,7 @@ function validateForm(formData) {
 function processFormData(formData) {
   // Fetch to the PHP file
   fetch(
-    `http://localhost/M.A.E.K.-LMS-/basex/BDModify.php?id=${encodeURIComponent(
+    `http://localhost/M.A.E.K.-LMS-/Website/PHP/BDModify.php?id=${encodeURIComponent(
       formData.id
     )}&name=${encodeURIComponent(formData.name)}&price=${encodeURIComponent(
       formData.price
